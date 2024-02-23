@@ -9,10 +9,12 @@ import UIKit
 
 class ShortInfoViewController: UIViewController {
     
+    //MARK: - IBOutlet
     @IBOutlet var shortInfoStack: UIStackView!
     @IBOutlet var NameLabel: UILabel!
     @IBOutlet var myPhoto: UIImageView!
     
+    //MARK: - Private Properties
     var person: User?
     
     override func viewWillLayoutSubviews() {
@@ -20,7 +22,8 @@ class ShortInfoViewController: UIViewController {
         
         addGradient()
     }
-
+    
+    // MARK: - Initializers
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,12 +40,14 @@ class ShortInfoViewController: UIViewController {
         } 
     }
     
+    // MARK: - Overrides Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let viewController = segue.destination as? BiographyViewController
         viewController?.biographyText = person?.biography
     }
     
+    // MARK: - Private Methods
     private func addNewLabel(stackView: UIStackView, text: String) {
         let label = UILabel()
         label.text = text
