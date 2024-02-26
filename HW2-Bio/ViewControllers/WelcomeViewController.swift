@@ -21,18 +21,17 @@ final class WelcomeViewController: UIViewController {
         // Обновляем градиент при изменении ориентации
         addGradient()
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         if let person = person {
             let fullName = person.name + " " + person.surname
             
             greetingLabel.text? = "Welcome, " + person.login + "!"
             fullNameLabel.text? = "My name is " + fullName
-
+            
             tabBarController?.tabBar.items?[1].title = fullName
         }
-      
     }
 }

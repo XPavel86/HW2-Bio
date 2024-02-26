@@ -7,30 +7,26 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+final class PhotoViewController: UIViewController {
     
     @IBOutlet var photoStack: UIStackView!
-    @IBOutlet var scrollView: UIScrollView!
     
     var person: User?
     
+    // MARK: - Initializers
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addGradient()
-        
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //photoStack.spacing = 10
-        //photoStack.distribution = .fill
-
-                if let person = person {
-                    person.photos.dropFirst().forEach { element in
-                        addImage(stackView: photoStack, photo: element)
-                    }
-                }
+        if let person = person {
+            person.photos.dropFirst().forEach { element in
+                addImage(stackView: photoStack, photo: element)
+            }
+        }
     }
     
     // MARK: - Private Methods
@@ -49,8 +45,6 @@ class PhotoViewController: UIViewController {
         image.addConstraint(heightConstraint)
         image.contentMode = .scaleAspectFit
         image.image = photo
-        
-      
         
         stackView.addArrangedSubview(image)
     }

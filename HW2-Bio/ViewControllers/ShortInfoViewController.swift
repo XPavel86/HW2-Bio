@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShortInfoViewController: UIViewController {
+final class ShortInfoViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet var infoStack: UIStackView!
@@ -22,12 +22,6 @@ class ShortInfoViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         addGradient()
-        
-//        // Установка равной ширины и высоты
-//       // myPhoto.widthAnchor.constraint(equalTo: myPhoto.heightAnchor).isActive = true
-//        // Получение ровного круга
-//        photoStack.layer.cornerRadius = photoStack.frame.height / 2
-//        //myPhoto.clipsToBounds = true
     }
 
     // MARK: - Initializers

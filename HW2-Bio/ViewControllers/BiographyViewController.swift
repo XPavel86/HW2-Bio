@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BiographyViewController: UIViewController {
+final class BiographyViewController: UIViewController {
     
     @IBOutlet var biographyTextView: UITextView!
     
@@ -27,6 +27,6 @@ class BiographyViewController: UIViewController {
         
         let photoVC = segue.destination as? PhotoViewController
         photoVC?.person = person
-        print("Go to photo >>")
+        //print("Go to photo >>")
     }
 }

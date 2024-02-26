@@ -339,7 +339,6 @@
                     <navigationItem key="navigationItem" id="kQr-3X-k52"/>
                     <connections>
                         <outlet property="photoStack" destination="18O-MW-UEw" id="ETE-do-qFS"/>
-                        <outlet property="scrollView" destination="ROS-O2-l90" id="2N0-JM-XgF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyb-iv-IlS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
