@@ -8,18 +8,25 @@
 import UIKit
 
 class BiographyViewController: UIViewController {
-
+    
     @IBOutlet var biographyTextView: UITextView!
-  
-    var biographyText: String!
+    
+    var person: User?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addGradient()
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        biographyTextView.text = biographyText
+        biographyTextView.text = person?.biography
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let photoVC = segue.destination as? PhotoViewController
+        photoVC?.person = person
+        print("Go to photo >>")
     }
 }

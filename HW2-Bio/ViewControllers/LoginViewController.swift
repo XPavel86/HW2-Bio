@@ -21,7 +21,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var remindPasswordButton: UIButton!
     
     //MARK: - Private Properties
-    public let person = User.getPerson()
+    private let person = User.getPerson()
     
     // MARK: - Initializers
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         
         passwordField.setSettings()
         userNameField.setSettings()
+        passwordField.isSecureTextEntry = true
         
         loginButton.layer.cornerRadius = 5
     }
@@ -38,8 +39,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillLayoutSubviews() {
         setViewColor()
         actionKeyboard()
-        
-        passwordField.isSecureTextEntry = true
     }
     
     // MARK: - Overrides Methods
@@ -51,7 +50,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     // скрываем клавиатуру при тапе на экране
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     // передаeм текст в welcomeView
@@ -63,13 +62,14 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
             viewController in
             if let firstVC = viewController as? WelcomeViewController {
                 firstVC.person = person
-                //print("firstVC")
+                print("firstVC")
             }
             else if let navigationVC = viewController as? UINavigationController {
                 let secondVC = navigationVC.topViewController as? ShortInfoViewController
                 secondVC?.person = person
-                //print("secondVC")
+                print("secondVC")
             }
+            
         }
     }
     

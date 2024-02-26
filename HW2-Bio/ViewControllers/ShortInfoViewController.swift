@@ -10,9 +10,10 @@ import UIKit
 class ShortInfoViewController: UIViewController {
     
     //MARK: - IBOutlet
-    @IBOutlet var shortInfoStack: UIStackView!
-    @IBOutlet var NameLabel: UILabel!
+    @IBOutlet var infoStack: UIStackView!
+    //@IBOutlet var NameLabel: UILabel!
     @IBOutlet var myPhoto: UIImageView!
+   // @IBOutlet var photoStack: UIStackView!
     
     //MARK: - Private Properties
     var person: User?
@@ -21,30 +22,35 @@ class ShortInfoViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         addGradient()
+        
+//        // Установка равной ширины и высоты
+//       // myPhoto.widthAnchor.constraint(equalTo: myPhoto.heightAnchor).isActive = true
+//        // Получение ровного круга
+//        photoStack.layer.cornerRadius = photoStack.frame.height / 2
+//        //myPhoto.clipsToBounds = true
     }
-    
+
     // MARK: - Initializers
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let person = person {
             navigationItem.title = person.name + " " + person.surname
-            
-            myPhoto.image = person.photo
+            myPhoto.image = person.photos[0]
       
-            addNewLabel(stackView: shortInfoStack, text: "Имя: " + person.name)
-            addNewLabel(stackView: shortInfoStack, text: "Фамилия: " + person.surname)
-            addNewLabel(stackView: shortInfoStack, text: "Год рождения: " + person.yearOfBirth)
-            addNewLabel(stackView: shortInfoStack, text: "Город: " + person.city)
-            addNewLabel(stackView: shortInfoStack, text: "Профессия: " + person.profession)
+            addNewLabel(stackView: infoStack, text: "Имя: " + person.name)
+            addNewLabel(stackView: infoStack, text: "Фамилия: " + person.surname)
+            addNewLabel(stackView: infoStack, text: "Год рождения: " + person.yearOfBirth)
+            addNewLabel(stackView: infoStack, text: "Город: " + person.city)
+            addNewLabel(stackView: infoStack, text: "Профессия: " + person.profession)
         } 
     }
     
     // MARK: - Overrides Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let viewController = segue.destination as? BiographyViewController
-        viewController?.biographyText = person?.biography
+        let biographyVC = segue.destination as? BiographyViewController
+        biographyVC?.person = person
     }
     
     // MARK: - Private Methods

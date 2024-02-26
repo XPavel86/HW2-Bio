@@ -30,6 +30,7 @@ extension UIViewController {
         
             view.layer.insertSublayer(gradient, at: 0)
     }
+    
     func setViewColor() { // свой цвет при светлой теме
         view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ?
             UIColor(red: 0.957, green: 0.957, blue: 0.969, alpha: 1.0) :

@@ -10,6 +10,7 @@
 		EF0E8EEA2B854E2C001B5DFF /* extention + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E8EE92B854E2C001B5DFF /* extention + UITextField.swift */; };
 		EF0E8F0E2B866F7D001B5DFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E8F0D2B866F7D001B5DFF /* User.swift */; };
 		EF32A7D82B834E8C002C7B73 /* extention + LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32A7D72B834E8C002C7B73 /* extention + LoginViewController.swift */; };
+		EF33B9F72B8BD06800EBD791 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF33B9F62B8BD06800EBD791 /* PhotoViewController.swift */; };
 		EF3B56A42B828715002133A3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3B56A32B828715002133A3 /* WelcomeViewController.swift */; };
 		EF6D2C542B87F2D600A1C2E7 /* extention + ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D2C532B87F2D600A1C2E7 /* extention + ViewController.swift */; };
 		EF6D2C562B87F46700A1C2E7 /* ShortInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D2C552B87F46700A1C2E7 /* ShortInfoViewController.swift */; };
@@ -27,6 +28,7 @@
 		EF0E8EE92B854E2C001B5DFF /* extention + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention + UITextField.swift"; sourceTree = "<group>"; };
 		EF0E8F0D2B866F7D001B5DFF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF32A7D72B834E8C002C7B73 /* extention + LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention + LoginViewController.swift"; sourceTree = "<group>"; };
+		EF33B9F62B8BD06800EBD791 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		EF3B56A32B828715002133A3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EF6D2C532B87F2D600A1C2E7 /* extention + ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention + ViewController.swift"; sourceTree = "<group>"; };
 		EF6D2C552B87F46700A1C2E7 /* ShortInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortInfoViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				EF6D2C5B2B880C7200A1C2E7 /* WelcomeTabBarViewController.swift */,
 				EF6D2C552B87F46700A1C2E7 /* ShortInfoViewController.swift */,
 				EF6D2C572B87F49400A1C2E7 /* BiographyViewController.swift */,
+				EF33B9F62B8BD06800EBD791 /* PhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				EF3B56A42B828715002133A3 /* WelcomeViewController.swift in Sources */,
 				EFCC35392B8140E200FCE9C1 /* AppDelegate.swift in Sources */,
 				EF6D2C582B87F49400A1C2E7 /* BiographyViewController.swift in Sources */,
+				EF33B9F72B8BD06800EBD791 /* PhotoViewController.swift in Sources */,
 				EF6D2C5C2B880C7200A1C2E7 /* WelcomeTabBarViewController.swift in Sources */,
 				EF32A7D82B834E8C002C7B73 /* extention + LoginViewController.swift in Sources */,
 				EF6D2C542B87F2D600A1C2E7 /* extention + ViewController.swift in Sources */,
