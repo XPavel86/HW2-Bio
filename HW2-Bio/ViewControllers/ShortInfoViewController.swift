@@ -11,16 +11,13 @@ final class ShortInfoViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet var infoStack: UIStackView!
-    //@IBOutlet var NameLabel: UILabel!
     @IBOutlet var myPhoto: UIImageView!
-   // @IBOutlet var photoStack: UIStackView!
     
     //MARK: - Private Properties
     var person: User?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         addGradient()
     }
 
