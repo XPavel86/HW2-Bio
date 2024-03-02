@@ -14,24 +14,22 @@ final class WelcomeViewController: UIViewController {
     
     @IBOutlet var logOutButton: UIButton!
     
-    var person: User?
+    var person: Person?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        // Обновляем градиент при изменении ориентации
         addGradient()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let person = person {
-            let fullName = person.name + " " + person.surname
             
-            greetingLabel.text? = "Welcome, " + person.login + "!"
-            fullNameLabel.text? = "My name is " + fullName
             
-            tabBarController?.tabBar.items?[1].title = fullName
+            greetingLabel.text? = "Welcome, " + person.name + "!"
+            fullNameLabel.text? = "My name is " + person.fullName
+            
+            tabBarController?.tabBar.items?[1].title = person.fullName
         }
     }
 }

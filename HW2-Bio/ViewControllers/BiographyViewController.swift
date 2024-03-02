@@ -11,7 +11,7 @@ final class BiographyViewController: UIViewController {
     
     @IBOutlet var biographyTextView: UITextView!
     
-    var person: User?
+    var person: Person?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -21,6 +21,7 @@ final class BiographyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         biographyTextView.text = person?.biography
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

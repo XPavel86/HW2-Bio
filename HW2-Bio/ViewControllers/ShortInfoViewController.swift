@@ -11,10 +11,15 @@ final class ShortInfoViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet var infoStack: UIStackView!
-    @IBOutlet var myPhoto: UIImageView!
+    @IBOutlet var myPhoto: UIImageView! {
+        didSet {
+            myPhoto.layer.cornerRadius = myPhoto.frame.height / 2
+        }
+    }
+
     
     //MARK: - Private Properties
-    var person: User?
+    var person: Person?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -24,17 +29,17 @@ final class ShortInfoViewController: UIViewController {
     // MARK: - Initializers
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if let person = person {
-            navigationItem.title = person.name + " " + person.surname
-            myPhoto.image = person.photos[0]
+            navigationItem.title = person.fullName
+            myPhoto.image = UIImage(named: person.photos.first!)
       
-            addNewLabel(stackView: infoStack, text: "Имя: " + person.name)
-            addNewLabel(stackView: infoStack, text: "Фамилия: " + person.surname)
-            addNewLabel(stackView: infoStack, text: "Год рождения: " + person.yearOfBirth)
-            addNewLabel(stackView: infoStack, text: "Город: " + person.city)
-            addNewLabel(stackView: infoStack, text: "Профессия: " + person.profession)
-        } 
+            addNewLabel(stackView: infoStack, text: "Name: " + person.name)
+            addNewLabel(stackView: infoStack, text: "Surname: " + person.surname)
+            addNewLabel(stackView: infoStack, text: "Year Of Birth: " + person.yearOfBirth)
+            addNewLabel(stackView: infoStack, text: "City: " + person.city)
+            addNewLabel(stackView: infoStack, text: "Profession: " + person.profession)
+        }
     }
     
     // MARK: - Overrides Methods

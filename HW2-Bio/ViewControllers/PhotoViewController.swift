@@ -11,12 +11,13 @@ final class PhotoViewController: UIViewController {
     
     @IBOutlet var photoStack: UIStackView!
     
-    var person: User?
+    var person: Person?
     
     // MARK: - Initializers
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addGradient()
+      
     }
     
     override func viewDidLoad() {
@@ -24,7 +25,8 @@ final class PhotoViewController: UIViewController {
         
         if let person = person {
             person.photos.dropFirst().forEach { element in
-                addImage(stackView: photoStack, photo: element)
+                addImage(stackView: photoStack,
+                         photo: UIImage(named: element)!)
             }
         }
     }

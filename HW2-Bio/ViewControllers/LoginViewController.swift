@@ -21,11 +21,12 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var remindPasswordButton: UIButton!
     
     //MARK: - Private Properties
-    private let person = User.getPerson()
+    private let user = User.getPerson()
     
     // MARK: - Initializers
     override func viewDidLoad() {
         super.viewDidLoad()
+  
         passwordField.delegate = self
         userNameField.delegate = self
         
@@ -42,73 +43,63 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Overrides Methods
-    //событие перед переходом на WelcomeViewController, проверяем логин
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return checkСredentials()
     }
     
-    // скрываем клавиатуру при тапе на экране
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
-    // передаeм текст в welcomeView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("\(user.id)")
         
         let tabBarController = segue.destination as? UITabBarController
         
         tabBarController?.viewControllers?.forEach {
             viewController in
             if let firstVC = viewController as? WelcomeViewController {
-                firstVC.person = person
-                print("firstVC")
+                firstVC.person = user.person
             }
             else if let navigationVC = viewController as? UINavigationController {
                 let secondVC = navigationVC.topViewController as? ShortInfoViewController
-                secondVC?.person = person
-                print("secondVC")
+                secondVC?.person = user.person
             }
             
         }
     }
     
     // MARK: - IBAction
-    // показываем подсказки логина / пароля
     @IBAction func remindUserOrPassword(sender: UIButton) {
         sender == remindNameButton ?
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Your name is \(person.login) 😉"
+            andMessage: "Your name is \(user.login) 😉"
         ) :
         showAlert(
             withTitle: "Oops!",
-            andMessage: "Your password is \(person.password) 😉"
+            andMessage: "Your password is \(user.password) 😉"
         )
     }
     
-    // обрабатываем закрытие welcomeView
     @IBAction func unwind(for segue: UIStoryboardSegue ) {
         passwordField.text = ""
         userNameField.text = ""
     }
     
     // MARK: - Public Methods
-    // событие клавиатуры при нажатии на Return
-    // для работы нужно присвоить делегат и добавить протокол
-    // UITextFieldDelegate и textField.delegate = self (через расширение не работает)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        if checkСredentials() { // переход по сегвею mainSegue
+        if checkСredentials() {
             performSegue(withIdentifier: "mainSegue", sender: self)
         }
         return true
     }
     
     // MARK: - Private Methods
-    // проверяем логин / пароль
     private func checkСredentials() -> Bool {
-        
         guard userNameField.text != "" else { userNameField.alarm()
             return false
         }
@@ -116,8 +107,8 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        guard userNameField.text == person.login,
-              passwordField.text == person.password
+        guard userNameField.text == user.login,
+              passwordField.text == user.password
         else {
             showAlert(
                 withTitle: "Invalid login or password!",
@@ -128,7 +119,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    // объявление алерта
     private func showAlert(
         withTitle title: String,
         andMessage message: String,

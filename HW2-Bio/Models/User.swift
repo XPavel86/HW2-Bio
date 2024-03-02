@@ -4,48 +4,57 @@
 //
 //  Created by Pavel Dolgopolov on 21.02.2024.
 //
-
-import UIKit
+import Foundation
 
 struct User {
+    let id = UUID()
     let login: String
     let password: String
+    let person: Person
+    
+     static func getPerson() -> User {
+        User (
+            login: "User",
+            password: "123",
+            person: Person.getPerson()
+        )
+    }
+}
+
+struct Person {
     let name: String
     let surname: String
     let yearOfBirth: String
     let city: String
     let profession: String
-    let photos: [UIImage]
+    let photos: [String]
     let biography: String
-   
-    static func getPerson() -> User {
-        let myPhotos: [UIImage] = [
-            "MyPhoto",
-            "MyCat",
-            "Mers",
-            "SovetFan"
-        ]
-            .map {
-                UIImage(named: $0) ?? UIImage(systemName: "person.crop.artframe")!
-        }
-        
-        return User(
-            login: "User",
-            password: "123",
-            name: "Павел",
-            surname: "Долгополов",
+    
+    var fullName: String {
+        "\(name) \(surname)"
+    }
+    
+    static func getPerson() -> Person {
+        Person(
+            name: "Pavel",
+            surname: "Dolgopolov",
             yearOfBirth: "28.10.2000",
-            city: "Москва",
+            city: "Moscow",
             profession: "Engineer",
-            photos: myPhotos,
+            photos: [
+                "person.crop.artframe",
+                "person.crop.artframe",
+                "person.crop.artframe"
+            ],
+            
             biography: """
-Встретьте нашего персонажа. Он — настоящий ценитель водных просторов и мест, где природа сливается с водными элементами. Вы можете его обнаружить на волне во время катания на кейтсерфинге!
+Meet our character. He is a true connoisseur of water spaces and places where nature merges with water elements. You can find it on the wave while kitesurfing!
 
-Помимо водных приключений, наш персонаж находит вдохновение в новых технологиях и занятиях. Его увлечение электроникой и программированием позволяют ему воплощать необычные проекты.
+In addition to water adventures, our character finds inspiration in new technologies and activities. His passion for electronics and programming allows him to implement unusual projects.
 
-После долгих лет работы в Москве он нашел свой уголок в прекрасном Крыму, где каждый день наполнен новыми открытиями и вдохновением.
+After many years of working in Moscow, he found his corner in the beautiful Crimea, where every day is filled with new discoveries and inspiration.
 
-Также наш персонаж является большим любителем мерсов, кошек и советской фантастики. Об этом и о многом другом вы можете посмотреть в разделе фото.
+Our character is also a big fan of Mercedes cars, cats and Soviet science fiction. You can see about this and much more in the photo section.
 """
         )
     }
